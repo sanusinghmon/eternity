@@ -1,0 +1,29 @@
+<br>
+<br>
+<br>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Paper Details</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Title: <%= paper.title %></h5>
+                <h6 class="card-subtitle mb-2 text-muted">Questions:</h6>
+                <ul class="list-group">
+                    <% paper.questions.forEach((question, index) => { %>
+                        <li class="list-group-item">
+                            <strong>Question <%= index + 1 %>:</strong> <%= question.questionText %>
+                            <ul>
+                                <% question.options.forEach((option, optionIndex) => { %>
+                                    <li><%= option %> <%= (optionIndex + 1 === question.correctAnswer) ? "(Correct)" : "" %></li>
+                                <% }) %>
+                            </ul>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

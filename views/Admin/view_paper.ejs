@@ -1,0 +1,19 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<body>
+    <h1><%= paper.title %></h1>
+    <form action="/admin/submit-paper/<%= paper._id %>" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <% paper.questions.forEach((question, index) => { %>
+            <div>
+                <p><%= index + 1 %>. <%= question.questionText %></p>
+                <input type="text" name="answers[<%= index %>]" required>
+            </div>
+        <% }) %>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

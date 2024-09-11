@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('Admin/layout') %>
+    <title>Coupon Usage</title>
+</head>
+<body>
+    <h1>Coupon Usage</h1>
+    <ul>
+        <% coupons.forEach(coupon => { %>
+            <li>
+                <%= coupon.code %> - <%= coupon.used ? 'Used' : 'Available' %>
+                <% if (!coupon.used) { %>
+                    <form action="/admin/mark-coupon-used/<%= coupon._id %>" method="POST" style="display:inline;">
+                        <button type="submit">Mark as Used</button>
+                    </form>
+                <% } %>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>

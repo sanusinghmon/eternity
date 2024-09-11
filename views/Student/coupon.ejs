@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Coupon Code</title>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Enter Coupon Code to Start the Test</h2>
+        <% if (typeof message !== 'undefined') { %>
+            <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+        <form action="/student/submit-coupon/<%= paperId %>" method="post">
+            <div class="form-group">
+                <label for="coupon">Coupon Code</label>
+                <input type="text" class="form-control" id="coupon" name="coupon" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

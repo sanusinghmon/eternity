@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Modernize</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="handheldfriendly" content="true" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="description" content="Modernize" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="Modernize" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" type="image/png" href="/Admin-asset/dist/images/logos/favicon.png" />
+    <link id="themeColors" rel="stylesheet" href="/Admin-asset/dist/css/style.min.css" />
+</head>
+<body>
+    <div class="preloader">
+        <img src="/Admin-asset/dist/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
+    </div>
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+        <div class="position-relative overflow-hidden radial-gradient min-vh-100">
+            <div class="position-relative z-index-5">
+                <div class="row">
+                    <div class="col-xl-7 col-xxl-8">
+                        <a href="/" class="text-nowrap logo-img d-block px-4 py-9 w-100">
+                            <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/dark-logo.svg" width="180" alt="">
+                        </a>
+                        <div class="d-none d-xl-flex align-items-center justify-content-center" style="height: calc(100vh - 80px);">
+                            <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/backgrounds/login-security.svg" alt="" class="img-fluid" width="500">
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-xxl-4">
+                        <div class="authentication-login min-vh-100 bg-body row justify-content-center align-items-center p-4">
+                            <div class="col-sm-8 col-md-6 col-xl-9">
+                                <h2 class="mb-3 fs-7 fw-bolder">Welcome to Sattva Manas</h2>
+                                <p class="mb-9">Your Dashboard</p>
+                                <div class="position-relative text-center my-4">
+                                    <p class="mb-0 fs-4 px-3 d-inline-block bg-white text-dark z-index-5 position-relative">or sign in with</p>
+                                    <span class="border-top w-100 position-absolute top-50 start-50 translate-middle"></span>
+                                </div>
+                                <form action="/Auth/login" method="post">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username" required autofocus autocomplete="username">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="password" class="form-label">Password</label>
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" id="password" name="password" required autocomplete="current-password">
+                                            <button type="button" class="btn btn-outline-secondary" onclick="togglePassword()">Show</button>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Login</button>
+                                </form>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <p class="fs-4 mb-0 fw-medium">Don't have an account?</p>
+                                    <a class="text-primary fw-medium ms-2" href="/auth/signup">Sign up here</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/Admin-asset/dist/libs/jquery/dist/jquery.min.js"></script>
+    <script src="/Admin-asset/dist/libs/simplebar/dist/simplebar.min.js"></script>
+    <script src="/Admin-asset/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/Admin-asset/dist/js/app.min.js"></script>
+    <script src="/Admin-asset/dist/js/app.init.js"></script>
+    <script src="/Admin-asset/dist/js/app-style-switcher.js"></script>
+    <script src="/Admin-asset/dist/js/sidebarmenu.js"></script>
+    <script src="/Admin-asset/dist/js/custom.js"></script>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        }
+    </script>
+</body>
+</html>

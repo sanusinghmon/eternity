@@ -1,0 +1,18 @@
+.footer-light {
+    background-color: #f8f9fa; /* Change to your desired background color */
+    padding: 40px 0;
+}
+
+.subfooter {
+    background-color: #343a40; /* Change to your desired background color */
+    padding: 20px 0;
+    color: #ffffff;
+}
+
+.footer-light p, .footer-light ul li a {
+    color: #343a40; /* Ensure text color contrasts well with background */
+}
+
+.subfooter .menu-simple li a {
+    color: #ffffff;
+}

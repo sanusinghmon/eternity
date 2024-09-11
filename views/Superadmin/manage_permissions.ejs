@@ -1,0 +1,25 @@
+<br>
+<br>
+<br>
+<br>
+<h1>Manage Permissions</h1>
+<form action="/admin/manage_permissions" method="post">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <label for="user">User:</label>
+    <select id="user" name="username">
+        <% users.forEach(user=> { %>
+            <option value="<%= user.username %>">
+                <%= user.username %>
+            </option>
+            <% }) %>
+    </select>
+    <label for="role">Role:</label>
+    <select id="role" name="roleId">
+        <% roles.forEach(role=> { %>
+            <option value="<%= role._id %>">
+                <%= role.name %>
+            </option>
+            <% }) %>
+    </select>
+    <button type="submit">Update Permissions</button>
+</form>

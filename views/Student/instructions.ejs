@@ -1,0 +1,39 @@
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Instructions</title>
+</head>
+<body>
+    
+    <div class="container mt-5">
+        <h2>Instructions</h2>
+        <p>Please read the following instructions carefully before starting the test.</p>
+        Add any specific instructions you have for the test
+        <button onclick="window.location.href='/student/start-test/<%= student._id %>'" class="btn btn-success mt-3">Start Test</button>
+    </div>
+    
+</body>
+</html> -->
+
+
+<!-- views/Student/instructions.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Instructions</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Instructions</h2>
+        <p>Please read the following instructions carefully before starting the test.</p>
+        <form action="/student/start-test/<%= student._id %>" method="GET">
+            <input type="hidden" name="paperId" value="<%= paper._id %>">
+            <input type="hidden" name="paperTitle" value="<%= paper.title %>">
+            <button type="submit" class="btn btn-success mt-3">Start Test</button>
+        </form>
+    </div>
+</body>
+</html>
+

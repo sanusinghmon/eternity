@@ -1,0 +1,25 @@
+&nbsp;&nbsp;&nbsp;
+<div class="container mt-5">
+    <div class="row">
+        <% papers.forEach(paper => { %>
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        <h5 class="mb-0"><%= paper.title %></h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="/superadmin/generate-coupons/<%= paper._id %>" method="post">
+                            <!-- Include the CSRF token -->
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <div class="mb-3">
+                                <label for="numCoupons-<%= paper._id %>" class="form-label">Number of Coupons</label>
+                                <input type="number" class="form-control" id="numCoupons-<%= paper._id %>" name="numCoupons" placeholder="Enter number of coupons" required>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100"><i class="bi bi-plus-circle"></i> Generate Coupons</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>

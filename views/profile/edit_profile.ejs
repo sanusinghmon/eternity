@@ -1,0 +1,76 @@
+<!-- Profile Page Layout -->
+<div class="container-fluid">
+    <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+      <div class="card-body px-4 py-3">
+        <div class="row align-items-center">
+          <div class="col-9">
+            <h4 class="fw-semibold mb-8">Edit Profile</h4>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="text-muted" href="/profile">Profile</a></li>
+                <li class="breadcrumb-item" aria-current="page">Edit Profile</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="col-3">
+            <div class="text-center mb-n5">
+              <img src="/Admin-asset/dist/images/breadcrumb/ChatBc.png" alt="" class="img-fluid mb-n4">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card overflow-hidden">
+      <div class="card-body p-0">
+        <img src="/Admin-asset/dist/images/backgrounds/profilebg.jpg" alt="" class="img-fluid">
+        <div class="row align-items-center">
+          <div class="col-lg-4 order-lg-1 order-2">
+            <div class="d-flex align-items-center justify-content-around m-4">
+              <!-- Profile Picture -->
+              <div class="text-center">
+                <% if (user.picture) { %>
+                  <img src="/uploads/profile_pictures/<%= path.basename(user.picture) %>" alt="Profile Picture" class="img-fluid rounded-circle" style="width: 150px; height: 150px;">
+                <% } %>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 order-lg-2 order-1">
+            <form action="/profile/edit" method="POST" enctype="multipart/form-data">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+              <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" name="email" id="email" class="form-control w-100" value="<%= user.email %>" required>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone:</label>
+                <input type="text" name="phone" id="phone" class="form-control w-100" value="<%= user.phone %>" required>
+              </div>
+              <div class="mb-3">
+                <label for="address" class="form-label">Address:</label>
+                <input type="text" name="address" id="address" class="form-control w-100" value="<%= user.address %>" required>
+              </div>
+              <div class="mb-3">
+                <label for="picture" class="form-label">Profile Picture:</label>
+                <input type="file" name="picture" id="picture" class="form-control w-100">
+              </div>
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Import Js Files -->
+  <script src="/Admin-asset/dist/libs/jquery/dist/jquery.min.js"></script>
+  <script src="/Admin-asset/dist/libs/simplebar/dist/simplebar.min.js"></script>
+  <script src="/Admin-asset/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/Admin-asset/dist/js/app.min.js"></script>
+  <script src="/Admin-asset/dist/js/app.init.js"></script>
+  <script src="/Admin-asset/dist/js/app-style-switcher.js"></script>
+  <script src="/Admin-asset/dist/js/sidebarmenu.js"></script>
+  <script src="/Admin-asset/dist/js/custom.js"></script>
+  <script src="/Admin-asset/dist/js/apps/chat.js"></script>
+  </body>
+  </html>
+  

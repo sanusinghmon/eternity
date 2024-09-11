@@ -1,0 +1,77 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .question label {
+            font-weight: bold;
+        }
+        .question input {
+            margin-top: 5px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test: <%= paper.title %></h1>
+        
+        <form action="/student/submit-test/<%= paper._id %>" method="post">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+     <% if (paper && paper.questions && paper.questions.length > 0) { %>
+            <% paper.questions.forEach((question, index) => { %>
+                <div class="question">
+                    <label for="question_<%= index %>"><%= question.questionText %></label>
+                    <%question.options.forEach((option,index) => { %>
+                        <label for="option_<%= index %>"><%=option%></label>
+                        <%}) %>
+                    <input type="text" name="answers[]" id="question_<%= index %>" placeholder="Your answer" required>
+                </div>
+            <% }) %>
+            <% } else { %>
+                <p>No questions available for this test.</p>
+            <% } %>
+            <button type="submit">Submit Test</button>
+        </form>
+    </div>
+</body>
+</html>

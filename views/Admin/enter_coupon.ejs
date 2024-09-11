@@ -1,0 +1,19 @@
+<br>
+<br>
+<br>
+<br>
+    <h1>Enter Coupon Code</h1>
+    <form action="/admin/validate-coupon/<%= paperId %>" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <label for="couponCode">Coupon Code:</label>
+        <input type="text" id="couponCode" name="couponCode" required>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="school">School:</label>
+        <input type="text" id="school" name="school" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

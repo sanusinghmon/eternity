@@ -1,0 +1,82 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .url-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .url-container input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .url-container button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .url-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generate URL for <%= paper.title %></h1>
+        <div class="url-container">
+            <input type="text" id="testUrl" value="<%= url %>" readonly>
+            <button onclick="copyToClipboard()">Copy URL</button>
+        </div>
+        <p>Test URL: <a href="<%= url %>" target="_blank"><%= url %></a></p>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            var copyText = document.getElementById("testUrl");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+
+            // Copy the text inside the text field
+            document.execCommand("copy");
+
+            // Alert the copied text
+            alert("Copied the URL: " + copyText.value);
+        }
+    </script>
+</body>
+</html>

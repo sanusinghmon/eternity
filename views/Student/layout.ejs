@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #f8f9fa; /* Light grey background */
+        }
+        .main-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .content-card {
+            max-width: 500px; /* Medium card size */
+            padding: 40px;
+            border-radius: 15px;
+            background-color: #ffffff; /* White background for content */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+        }
+        .btn-custom {
+            background-color: #3498db; /* Sky blue */
+            border: none;
+            color: #ffffff;
+        }
+        .btn-custom:hover {
+            background-color: #2980b9; /* Darker shade of sky blue */
+        }
+        .form-control {
+            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid #ced4da;
+        }
+        .btn-custom {
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="content-card text-center">
+            <%- body %> <!-- This will include the content of the individual page (coupon or instructions) -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (Optional if not needed) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>
